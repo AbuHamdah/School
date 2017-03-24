@@ -1,0 +1,45 @@
+Version 1.0.3 - 17.03.2014
+- Updated: 
+	- Twitter Bootstrap 3.1.1
+- Improved: 
+	- Spacings and General Aesthetics throughout the template
+	- User Dashboard 5 x Widgets
+	- Complete Code Cleanup
+- Added: 
+	- Collapsible Sidebar Menu 
+	- Fixed Layout
+	- Top Responsive Navbar for Fixed Layout
+	- Layout Examples for All Pages both for Ajax and Non-Ajax
+	- 6x Blank Master Pages (both Ajax and Non-Ajax)
+
+Version 1.0.2 - 01.02.2014
+- Fixed: 
+	- Issue with animations that caused the page to reload;
+	- Issue with sidebar show/hide toggle that caused the menu to appear empty if toggled on resolutions over 768px;
+	- Issue with sidebar that caused the hidden menu to still appear under the content on short content pages;
+- Improved:
+	- Automatically scroll the sidebar menu back to top with smooth animation when opening a sidebar submenu from a very low main menu item (Useful on menus with many items and submenus);
+	- Added a fully AJAX powered version (the regular NON-AJAX version also included in the Download package);
+	- Added JavaScript asynchronous loading with dependency management;
+		- Asynchronous loading enables all scripts to be downloaded in parallel by the browser without blocking other CSS resources, images and JavaScript;
+		- Astonishingly impressive lightweight footprint of only 643 BYTES!
+		- Works on all browsers, IE6+;
+		- Enables the AJAX version to dynamically load the required scripts;
+		- Enforce the script execution order when loading JavaScript asynchronously with dependency management suitable for the most complex web applications;
+	- Added a complete LESS / minified CSS stylesheet that includes all styling resources needed for the entire template interface; makes mixing of components from different pages into new pages easier for beginners, since you only need to load one stylesheet that has everything;
+- Added: 
+	- Email Inbox page;
+	- Email Compose page;
+
+Version 1.0.1 - 25.01.2014
+- Fixed: 
+	- Fixed: Sidebar menu issue that would prevent to display submenus after closing an active submenu from the "close" button;
+	- Fixed: Sidebar menu issue that would cause the menu to be visible by default on mobile;
+	- Fixed: added "Typography" page to the menus (the page was already included in v1.0.0, but not showcased in the demo);
+- Improved: 
+	- Added: "Pace" page preloader;
+	- Hooked up page load animations with the page preloader which enables smoother animation (e.g. on the photo / video gallery pages);
+	- Improved sidebar menu / submenus navigation (e.g. when a sidebar main menu item with submenus is active, clicking on another main menu item that also has submenus, it first closes the active submenu and then it opens the new submenu; if the clicked main menu item is the currently opened menu, it only closes the submenu);
+
+Version 1.0.0 - 24.01.2014
+- Initial Release

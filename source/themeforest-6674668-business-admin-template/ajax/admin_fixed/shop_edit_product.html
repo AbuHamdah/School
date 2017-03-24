@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7 "> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8 "> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9 "> <![endif]-->
+<!--[if gt IE 8]> <html class="ie "> <![endif]-->
+<!--[if !IE]><!-->
+<html class="">
+<!-- <![endif]-->
+<head>
+    <title>BUSINESS Template (v1.0.3-rc2)</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- 
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	<link rel="stylesheet/less" href="../assets/less/admin/module.admin.stylesheet-complete.sidebar_type.no-sidebar.less" />
+	-->
+    <!--[if lt IE 9]><link rel="stylesheet" href="../assets/components/library/bootstrap/css/bootstrap.min.css" /><![endif]-->
+    <link rel="stylesheet" href="../assets/css/admin/module.admin.stylesheet-complete.sidebar_type.no-sidebar.min.css"
+    />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <script src="../assets/components/plugins/ajaxify/script.min.js?v=v1.0.3-rc2&sv=v0.0.1.1"></script>
+    <script>
+    var App = {};
+    </script>
+    <script data-id="App.Scripts">
+    App.Scripts = {
+        /* CORE scripts always load first; */
+        core: [
+            '../assets/components/library/jquery/jquery.min.js?v=v1.0.3-rc2&sv=v0.0.1.1',
+            '../assets/components/library/modernizr/modernizr.js?v=v1.0.3-rc2&sv=v0.0.1.1'
+        ],
+        /* PLUGINS_DEPENDENCY always load after CORE but before PLUGINS; */
+        plugins_dependency: [
+            '../assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.0.3-rc2&sv=v0.0.1.1',
+            '../assets/components/library/jquery/jquery-migrate.min.js?v=v1.0.3-rc2&sv=v0.0.1.1',
+            '../assets/components/common/forms/editors/wysihtml5/assets/lib/js/wysihtml5-0.3.0_rc2.min.js?v=v1.0.3-rc2&sv=v0.0.1.1'
+        ],
+        /* PLUGINS always load after CORE and PLUGINS_DEPENDENCY, but before the BUNDLE / initialization scripts; */
+        plugins: [
+            '../assets/components/plugins/nicescroll/jquery.nicescroll.min.js?v=v1.0.3-rc2&sv=v0.0.1.1',
+            '../assets/components/plugins/breakpoints/breakpoints.js?v=v1.0.3-rc2&sv=v0.0.1.1',
+            '../assets/components/plugins/ajaxify/davis.min.js?v=v1.0.3-rc2&sv=v0.0.1.1',
+            '../assets/components/plugins/ajaxify/jquery.lazyjaxdavis.min.js?v=v1.0.3-rc2&sv=v0.0.1.1',
+            '../assets/components/plugins/preload/pace/pace.min.js?v=v1.0.3-rc2&sv=v0.0.1.1',
+            '../assets/components/common/forms/editors/wysihtml5/assets/lib/js/bootstrap-wysihtml5-0.0.2.js?v=v1.0.3-rc2&sv=v0.0.1.1',
+            '../assets/components/plugins/less-js/less.min.js?v=v1.0.3-rc2&sv=v0.0.1.1',
+            '../assets/components/modules/admin/charts/flot/assets/lib/excanvas.js?v=v1.0.3-rc2',
+            '../assets/components/plugins/browser/ie/ie.prototype.polyfill.js?v=v1.0.3-rc2&sv=v0.0.1.1'
+        ],
+        /* The initialization scripts always load last and are automatically and dynamically loaded when AJAX navigation is enabled; */
+        bundle: [
+            '../assets/components/plugins/ajaxify/ajaxify.init.js?v=v1.0.3-rc2&sv=v0.0.1.1',
+            '../assets/components/plugins/preload/pace/preload.pace.init.js?v=v1.0.3-rc2&sv=v0.0.1.1',
+            '../assets/components/core/js/animations.init.js?v=v1.0.3-rc2',
+            '../assets/components/common/forms/editors/wysihtml5/assets/custom/wysihtml5.init.js?v=v1.0.3-rc2&sv=v0.0.1.1',
+            '../assets/components/core/js/core.init.js?v=v1.0.3-rc2'
+        ]
+    };
+    </script>
+    <script>
+    $script(App.Scripts.core, 'core');
+    $script.ready(['core'], function()
+    {
+        $script(App.Scripts.plugins_dependency, 'plugins_dependency');
+    });
+    $script.ready(['core', 'plugins_dependency'], function()
+    {
+        $script(App.Scripts.plugins, 'plugins');
+    });
+    $script.ready(['core', 'plugins_dependency', 'plugins'], function()
+    {
+        $script(App.Scripts.bundle, 'bundle');
+    });
+    </script>
+    <script>
+    if ( /*@cc_on!@*/ false && document.documentMode === 10)
+    {
+        document.documentElement.className += ' ie ie10';
+    }
+    </script>
+</head>
+<body class="scripts-async">
+    <!-- Main Container Fluid -->
+    <div class="container-fluid menu-hidden">
+        <!-- Content -->
+        <div id="content">
+            <nav class="navbar hidden-print main " role="navigation">
+                <div class="container">
+                    <div class="navbar-header pull-left">
+                        <div class="navbar-brand">
+                            <a href="index.html?lang=en" class="display-inline pull-left logo">
+                                <img src="../assets/images/logo/logo.jpg" alt="">
+                            </a>
+                            <a href="index.html?lang=en">
+                                <span class="text">mosaicpro</span>
+                            </a>
+                        </div>
+                        <button type="button" class="navbar-toggle padding-top-none" data-toggle="collapse"
+                        data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <i class="fa fa-bars fa-2x text-muted-dark"></i>
+                        </button>
+                    </div>
+                    <ul class="main pull-right ">
+                        <li class="dropdown notif notifications hidden-xs">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-bell-fill"></i> <span class="label label-danger">5</span></a>
+                            <ul class="dropdown-menu chat media-list pull-right">
+                                <li class="media">
+                                    <a class="pull-left" href="#">
+                                        <img class="media-object thumb" src="../assets/images/people/100/15.jpg" alt="50x50"
+                                        width="50" />
+                                    </a>
+                                    <div class="media-body">
+                                        <span class="label label-default pull-right">5 min</span>
+                                        <h5 class="media-heading">Adrian D.</h5>
+                                        <p class="margin-none">Lorem ipsum dolor sit amet, consectetur
+                                            adipisicing elit.</p>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <a class="pull-left" href="#">
+                                        <img class="media-object thumb" src="../assets/images/people/100/16.jpg" alt="50x50"
+                                        width="50" />
+                                    </a>
+                                    <div class="media-body">
+                                        <span class="label label-default pull-right">2 days</span>
+                                        <h5 class="media-heading">Jane B.</h5>
+                                        <p class="margin-none">Lorem ipsum dolor sit amet, consectetur
+                                            adipisicing elit.</p>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <a class="pull-left" href="#">
+                                        <img class="media-object thumb" src="../assets/images/people/100/17.jpg" alt="50x50"
+                                        width="50" />
+                                    </a>
+                                    <div class="media-body">
+                                        <span class="label label-default pull-right">3 days</span>
+                                        <h5 class="media-heading">Andrew M.</h5>
+                                        <p class="margin-none">Lorem ipsum dolor sit amet, consectetur
+                                            adipisicing elit.</p>
+                                    </div>
+                                </li>
+                                <li><a href="#" class="btn btn-primary"><i class="fa fa-list"></i> <span>View all messages</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown username">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="../assets/images/people/35/2.jpg" class="img-circle" width="30" />Bill Jonson
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="my_account.html?lang=en" class="glyphicons user"><i></i> Account</a>
+                                </li>
+                                <li><a href="messages.html?lang=en" class="glyphicons envelope"><i></i>Messages</a>
+                                </li>
+                                <li><a href="index.html?lang=en" class="glyphicons settings"><i></i>Settings</a>
+                                </li>
+                                <li><a href="login.html?lang=en" class="glyphicons lock no-ajaxify"><i></i>Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="">Components<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="ui.html?lang=en">UI Elements</a>
+                                    </li>
+                                    <li><a href="icons.html?lang=en">Icons</a>
+                                    </li>
+                                    <li><a href="typography.html?lang=en">Typography</a>
+                                    </li>
+                                    <li><a href="tabs.html?lang=en">Tabs</a>
+                                    </li>
+                                    <li><a href="sliders.html?lang=en">Sliders</a>
+                                    </li>
+                                    <li><a href="charts.html?lang=en">Charts</a>
+                                    </li>
+                                    <li><a href="grid.html?lang=en">Grid</a>
+                                    </li>
+                                    <li><a href="notifications.html?lang=en">Notifications</a>
+                                    </li>
+                                    <li><a href="modals.html?lang=en">Modals</a>
+                                    </li>
+                                    <li><a href="thumbnails.html?lang=en">Thumbnails</a>
+                                    </li>
+                                    <li><a href="carousels.html?lang=en">Carousels</a>
+                                    </li>
+                                    <li><a href="image_crop.html?lang=en">Image Cropping</a>
+                                    </li>
+                                    <li><a href="twitter.html?lang=en">Twitter API</a>
+                                    </li>
+                                    <li><a href="infinite_scroll.html?lang=en">Infinite Scroll</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="">Forms <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="form_wizards.html?lang=en">Form Wizards</a>
+                                    </li>
+                                    <li><a href="form_elements.html?lang=en">Form Elements</a>
+                                    </li>
+                                    <li><a href="form_validator.html?lang=en">Form Validator</a>
+                                    </li>
+                                    <li><a href="file_managers.html?lang=en">File Managers</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="">Tables <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="tables.html?lang=en">Tables</a>
+                                    </li>
+                                    <li><a href="tables_responsive.html?lang=en">Tables Responsive</a>
+                                    </li>
+                                    <li><a href="pricing_tables.html?lang=en">Pricing Tables</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="">Gallery <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="gallery_video.html?lang=en">Video Gallery</a>
+                                    </li>
+                                    <li><a href="gallery.html?lang=en">Photo Gallery</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class=" hidden-xs   hidden-sm">
+                                <ul class="colors pull-left">
+                                    <li class="active">
+                                        <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=style-default"
+                                        style="background-color: #3695d5" class="no-ajaxify">
+                                            <span class="hide">style-default</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=alizarin-crimson"
+                                        style="background-color: #F06F6F" class="no-ajaxify">
+                                            <span class="hide">alizarin-crimson</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=green-army"
+                                        style="background-color: #9FB478" class="no-ajaxify">
+                                            <span class="hide">green-army</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="" data-toggle="dropdown" class="dropdown-toggle">
+                                            <span class="color inverse"></span>
+                                            <span class="color danger"></span>
+                                            <span class="color success"></span>
+                                            <span class="color info"></span>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=brown">
+                                                    <span class="color" style="background-color: #d39174" class="no-ajaxify"></span>brown</a>
+                                            </li>
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=purple-gray">
+                                                    <span class="color" style="background-color: #AF86B9" class="no-ajaxify"></span>purple-gray</a>
+                                            </li>
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=blue-gray">
+                                                    <span class="color" style="background-color: #7293CF" class="no-ajaxify"></span>blue-gray</a>
+                                            </li>
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=purple-wine">
+                                                    <span class="color" style="background-color: #CC6788" class="no-ajaxify"></span>purple-wine</a>
+                                            </li>
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=black-and-white">
+                                                    <span class="color" style="background-color: #979797" class="no-ajaxify"></span>black-and-white</a>
+                                            </li>
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=amazon">
+                                                    <span class="color" style="background-color: #8BC4B9" class="no-ajaxify"></span>amazon</a>
+                                            </li>
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=amber">
+                                                    <span class="color" style="background-color: #CACA8A" class="no-ajaxify"></span>amber</a>
+                                            </li>
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=android-green">
+                                                    <span class="color" style="background-color: #A9C784" class="no-ajaxify"></span>android-green</a>
+                                            </li>
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=antique-brass">
+                                                    <span class="color" style="background-color: #B3998A" class="no-ajaxify"></span>antique-brass</a>
+                                            </li>
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=antique-bronze">
+                                                    <span class="color" style="background-color: #8D8D6E" class="no-ajaxify"></span>antique-bronze</a>
+                                            </li>
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=artichoke">
+                                                    <span class="color" style="background-color: #B0B69D" class="no-ajaxify"></span>artichoke</a>
+                                            </li>
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=atomic-tangerine">
+                                                    <span class="color" style="background-color: #F19B69" class="no-ajaxify"></span>atomic-tangerine</a>
+                                            </li>
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=bazaar">
+                                                    <span class="color" style="background-color: #98777B" class="no-ajaxify"></span>bazaar</a>
+                                            </li>
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=bistre-brown">
+                                                    <span class="color" style="background-color: #C3A961" class="no-ajaxify"></span>bistre-brown</a>
+                                            </li>
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=bittersweet">
+                                                    <span class="color" style="background-color: #d6725e" class="no-ajaxify"></span>bittersweet</a>
+                                            </li>
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=blueberry">
+                                                    <span class="color" style="background-color: #7789D1" class="no-ajaxify"></span>blueberry</a>
+                                            </li>
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=bud-green">
+                                                    <span class="color" style="background-color: #6fa362" class="no-ajaxify"></span>bud-green</a>
+                                            </li>
+                                            <li>
+                                                <a href="?module=admin&page=shop_edit_product&url_rewrite=&build=&v=v1.0.3-rc2&sidebar_type=no-sidebar&skin=burnt-sienna">
+                                                    <span class="color" style="background-color: #E4968A" class="no-ajaxify"></span>burnt-sienna</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- // END container -->
+            </nav>
+            <!-- // END navbar -->
+            <div class="container">
+                <div class="innerLR">
+                    <h2 class="margin-none pull-left">Add product</h2>
+                    <div class="btn-group btn-group-sm pull-right">
+                        <a href="shop_products.html?lang=en" class="btn btn-default btn-icon glyphicons left_arrow"><i></i> Back to Catalog</a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- Widget -->
+                    <div class="widget widget-tabs border-none">
+                        <!-- Widget heading -->
+                        <div class="widget-head">
+                            <ul>
+                                <li class="active"><a href="#productDescriptionTab" data-toggle="tab"
+                                    class="glyphicons font"><i></i>Description</a>
+                                </li>
+                                <li><a href="#productPhotosTab" data-toggle="tab" class="glyphicons picture"><i></i>Photos</a>
+                                </li>
+                                <li><a href="#productAttributesTab" data-toggle="tab"
+                                    class="glyphicons adjust_alt"><i></i>Custom Attributes</a>
+                                </li>
+                                <li><a href="#productPriceTab" data-toggle="tab" class="glyphicons table"><i></i>Qty & Price</a>
+                                </li>
+                                <li><a href="#productSeoTab" data-toggle="tab" class="glyphicons podium"><i></i>SEO</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- // Widget heading END -->
+                        <div class="widget-body">
+                            <div class="tab-content">
+                                <!-- Description -->
+                                <div class="tab-pane active" id="productDescriptionTab">
+                                    <!-- Row -->
+                                    <div class="row">
+                                        <!-- Column -->
+                                        <div class="col-md-3">
+                                            <strong>Product title</strong>
+                                            <p class="muted">Lorem ipsum dolor sit amet, consectetur
+                                                adipiscing elit.</p>
+                                        </div>
+                                        <!-- // Column END -->
+                                        <!-- Column -->
+                                        <div class="col-md-9">
+                                            <label for="inputTitle">Title</label>
+                                            <input type="text" id="inputTitle" class="form-control" value="" placeholder="Enter product title ..."
+                                            />
+                                            <div class="separator"></div>
+                                        </div>
+                                        <!-- // Column END -->
+                                    </div>
+                                    <!-- // Row END -->
+                                    <hr class="separator bottom" />
+                                    <!-- Row -->
+                                    <div class="row">
+                                        <!-- Column -->
+                                        <div class="col-md-3">
+                                            <strong>Description</strong>
+                                            <p class="muted">Lorem ipsum dolor sit amet, consectetur
+                                                adipiscing elit.</p>
+                                        </div>
+                                        <!-- // Column END -->
+                                        <!-- Column -->
+                                        <div class="col-md-9">
+                                            <label for="textDescription">Description</label>
+                                            <textarea id="textDescription" class="wysihtml5 form-control" rows="5">Lorem ipsum dolor sit amet, consectetuer
+                                                adipiscing elit. Aenean commodo
+                                                ligula eget dolor. Aenean massa.
+                                                Cum sociis natoque penatibus et
+                                                magnis dis parturient montes, nascetur
+                                                ridiculus mus. Donec quam felis,
+                                                ultricies nec, pellentesque eu,
+                                                pretium quis, sem. Nulla consequat
+                                                massa quis enim. Donec pede justo,
+                                                fringilla vel, aliquet nec, vulputate
+                                                eget, arcu. In enim justo, rhoncus
+                                                ut, imperdiet a, venenatis vitae,
+                                                justo. Nullam dictum felis eu pede
+                                                mollis pretium.</textarea>
+                                        </div>
+                                        <!-- // Column END -->
+                                    </div>
+                                    <!-- // Row END -->
+                                </div>
+                                <!-- // Description END -->
+                                <!-- Photos -->
+                                <div class="tab-pane" id="productPhotosTab">
+                                    <h5 class="strong text-uppercase margin-none">Photos</h5>
+                                    <div class="separator bottom"></div>
+                                    <!-- Gallery Layout -->
+                                    <div class="gallery gallery-2">
+                                        <ul class="row" data-toggle="modal-gallery" data-target="#modal-gallery" id="gallery-4"
+                                        data-delegate="#gallery-4">
+                                            <li class="col-md-2 hidden-phone">
+                                                <a class="thumb" href="../assets/images/gallery-2/8.jpg" data-gallery="gallery">
+                                                    <img src="../assets/images/gallery-2/8.jpg" alt="photo" class="img-responsive"
+                                                    />
+                                                </a>
+                                            </li>
+                                            <li class="col-md-2 hidden-phone">
+                                                <a class="thumb" href="../assets/images/gallery-2/7.jpg" data-gallery="gallery">
+                                                    <img src="../assets/images/gallery-2/7.jpg" alt="photo" class="img-responsive"
+                                                    />
+                                                </a>
+                                            </li>
+                                            <li class="col-md-2 hidden-phone">
+                                                <a class="thumb" href="../assets/images/gallery-2/6.jpg" data-gallery="gallery">
+                                                    <img src="../assets/images/gallery-2/6.jpg" alt="photo" class="img-responsive"
+                                                    />
+                                                </a>
+                                            </li>
+                                            <li class="col-md-2 hidden-phone">
+                                                <a class="thumb" href="../assets/images/gallery-2/5.jpg" data-gallery="gallery">
+                                                    <img src="../assets/images/gallery-2/5.jpg" alt="photo" class="img-responsive"
+                                                    />
+                                                </a>
+                                            </li>
+                                            <li class="col-md-2 hidden-phone">
+                                                <a class="thumb" href="../assets/images/gallery-2/4.jpg" data-gallery="gallery">
+                                                    <img src="../assets/images/gallery-2/4.jpg" alt="photo" class="img-responsive"
+                                                    />
+                                                </a>
+                                            </li>
+                                            <li class="col-md-2">
+                                                <a class="thumb" href="../assets/images/gallery-2/3.jpg" data-gallery="gallery">
+                                                    <img src="../assets/images/gallery-2/3.jpg" alt="photo" class="img-responsive"
+                                                    />
+                                                </a>
+                                            </li>
+                                            <li class="col-md-2">
+                                                <a class="thumb" href="../assets/images/gallery-2/2.jpg" data-gallery="gallery">
+                                                    <img src="../assets/images/gallery-2/2.jpg" alt="photo" class="img-responsive"
+                                                    />
+                                                </a>
+                                            </li>
+                                            <li class="col-md-2">
+                                                <a class="thumb" href="../assets/images/gallery-2/1.jpg" data-gallery="gallery">
+                                                    <img src="../assets/images/gallery-2/1.jpg" alt="photo" class="img-responsive"
+                                                    />
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- // Gallery Layout END -->
+                                </div>
+                                <!-- // Photos END -->
+                                <!-- Attributes -->
+                                <div class="tab-pane" id="productAttributesTab">
+                                    <h5 class="strong text-uppercase">Custom attributes</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+                                        elit. Sed faucibus leo tortor, sit amet
+                                        sodales mauris iaculis ac. Fusce eu euismod
+                                        orci. Nam congue magna at urna varius,
+                                        nec viverra risus facilisis. In eu ullamcorper
+                                        enim. Suspendisse sagittis dolor quis est
+                                        porttitor fringilla. Suspendisse venenatis,
+                                        diam vitae tempor lacinia, metus risus
+                                        tincidunt massa, a malesuada augue massa
+                                        eu augue. Praesent convallis et metus vulputate
+                                        euismod. Aenean ultricies dolor porta turpis
+                                        bibendum, non pretium metus placerat. Donec
+                                        congue tincidunt pharetra. Aliquam sed
+                                        orci lectus. Mauris iaculis leo turpis.
+                                        Duis auctor libero mi, non convallis lectus
+                                        pellentesque in. Donec rutrum neque bibendum
+                                        nulla vulputate condimentum. Sed dictum
+                                        ut velit nec feugiat. Nullam aliquam enim
+                                        at commodo lobortis.</p>
+                                </div>
+                                <!-- // Attributes END -->
+                                <!-- Price -->
+                                <div class="tab-pane" id="productPriceTab">
+                                    <h5 class="strong text-uppercase">Quantity &amp; Price</h5>
+                                    <p>Donec sit amet lacus enim. Mauris vehicula
+                                        vulputate erat, eget sagittis ipsum hendrerit
+                                        id. Maecenas tristique sodales tellus vel
+                                        euismod. Ut odio dolor, convallis vel auctor
+                                        non, congue quis augue. Cras a tincidunt
+                                        mauris. Mauris iaculis ullamcorper sapien,
+                                        id vestibulum lectus dictum quis. Quisque
+                                        et nunc sit amet eros tristique pellentesque
+                                        ac sed purus. Fusce vel nunc varius, vestibulum
+                                        ligula venenatis, facilisis ante.</p>
+                                </div>
+                                <!-- // Price END -->
+                                <!-- SEO -->
+                                <div class="tab-pane" id="productSeoTab">
+                                    <h5 class="strong text-uppercase">Search Engine Optimization</h5>
+                                    <p>Aenean sollicitudin et nisi ac faucibus. Ut
+                                        lacinia rhoncus posuere. Cras consectetur
+                                        tincidunt consectetur. Nam egestas augue
+                                        sed leo tincidunt imperdiet. Etiam eu convallis
+                                        magna, sed hendrerit sem. Sed vulputate,
+                                        tortor vel ullamcorper aliquet, ante nibh
+                                        iaculis neque, ullamcorper dictum felis
+                                        metus nec quam. Pellentesque sollicitudin
+                                        turpis a mi volutpat, eget sagittis urna
+                                        vehicula. Nunc vel ultrices elit. Proin
+                                        eros justo, hendrerit a metus non, convallis
+                                        ullamcorper magna.</p>
+                                </div>
+                                <!-- // SEO END -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // Widget END -->
+                    <div class="text-right innerAll border-top">
+                        <div class="btn-group btn-group-sm">
+                            <a href="" class="btn btn-default"><i class="fa fa-fw fa-share"></i> Preview</a>
+                            <a href="" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Save</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // Content END -->
+        </div>
+        <!-- // Container END -->
+        <div class="clearfix"></div>
+        <!-- // Sidebar menu & content wrapper END -->
+        <div id="footer" class="hidden-print">
+            <!--  Copyright Line -->
+            <div class="copy">&copy; 2012 - 2014 - <a href="http://www.mosaicpro.biz">MosaicPro</a> -
+                All Rights Reserved. <a href="http://themeforest.net/?ref=mosaicpro"
+                target="_blank">Purchase BUSINESS on ThemeForest</a> - Current version:
+                v1.0.3-rc2 / <a target="_blank" href="../assets/../../CHANGELOG.txt?v=v1.0.3-rc2">changelog</a>
+            </div>
+            <!--  End Copyright Line -->
+        </div>
+        <!-- // Footer END -->
+    </div>
+    <!-- // Main Container Fluid END -->
+    <!-- Global -->
+    <script data-id="App.Config">
+    var basePath = '',
+        commonPath = '../assets/',
+        rootPath = '../',
+        DEV = false,
+        componentsPath = '../assets/components/';
+    var primaryColor = '#3695d5',
+        dangerColor = '#b55151',
+        successColor = '#609450',
+        infoColor = '#4a8bc2',
+        warningColor = '#ab7a4b',
+        inverseColor = '#45484d';
+    var themerPrimaryColor = primaryColor;
+    App.Config = {
+        ajaxify_menu_selectors: ['#menu'],
+        ajaxify_layout_app: false
+    };
+    </script>
+</body>
+</html>

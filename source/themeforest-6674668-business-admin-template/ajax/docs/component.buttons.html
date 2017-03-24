@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BUSINESS Template (v1.0.3-rc2)</title>
+	
+	<!-- Meta -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+	 
+	
+	<!-- 
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	-->
+
+		<!-- <link rel="stylesheet/less" href="../assets/less/docs/module.docs.page.index.component.buttons.sidebar_type.discover.less" /> -->
+
+	<link rel="stylesheet" href="../assets/css/docs/module.docs.page.index.component.buttons.sidebar_type.discover.min.css" />
+
+	
+	
+	<script src="../assets/components/library/jquery/jquery.min.js?v=v1.0.3-rc2&sv=v0.0.1.1"></script>
+<script src="../assets/components/library/jquery/jquery-migrate.min.js?v=v1.0.3-rc2&sv=v0.0.1.1"></script>
+<script src="../assets/components/library/modernizr/modernizr.js?v=v1.0.3-rc2&sv=v0.0.1.1"></script>
+<script src="../assets/components/plugins/less-js/less.min.js?v=v1.0.3-rc2&sv=v0.0.1.1"></script>
+<script src="../assets/components/modules/admin/charts/flot/assets/lib/excanvas.js?v=v1.0.3-rc2"></script>
+<script src="../assets/components/plugins/browser/ie/ie.prototype.polyfill.js?v=v1.0.3-rc2&sv=v0.0.1.1"></script>
+<script src="../assets/components/library/angular/angular.min.js?v=v1.0.3-rc2&sv=v0.0.1.1"></script>
+</head>
+<body id="docs">
+<!-- Fixed navbar -->
+<div class="navbar navbar-default margin-none">
+  <!-- <div class="container"> -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">BUSINESS Documentation</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Core packages <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="component.core.minimal.html">Minimal</a></li>
+            <li><a href="component.core.html">Complete</a></li>
+          </ul>
+        </li>
+        <li><a href="http://www.mosaicpro.biz/blog/tutorials" target="_blank"><i class="fa fa-fw fa-file-text-o"></i> Online Guides</a></li>
+      </ul>
+      <!-- <ul class="nav navbar-nav navbar-right">
+        <li><a href="../navbar/">Default</a></li>
+        <li><a href="../navbar-static-top/">Static top</a></li>
+        <li class="active"><a href="./">Fixed top</a></li>
+      </ul> -->
+    </div><!--/.nav-collapse -->
+  <!-- </div> -->
+</div>
+
+<div class="innerAll">
+<div class="widget widget-tabs">
+	<div class="widget-body">
+
+		<div class="row">
+			<div class="col-md-3" ng-app="App" ng-controller="ComponentsCtrl" ng-init="search = 'buttons'">
+				<input class="form-control" type="text" ng-model="search" placeholder="Search .." />
+				<tree collection="components" search="search"></tree>
+			</div>
+			<div class="col-md-9">
+										
+						<div class="jumbotron center">
+							<h1>component.buttons</h1>
+						</div>
+
+													<h4 class="separator bottom"><a href="#view-12204ba5253be089b135677e813fb913" data-toggle="collapse">buttons</a></h4>
+							<div class="collapse in" id="view-12204ba5253be089b135677e813fb913">
+								<div class="widget widget-tabs">
+									<div class="widget-head padding-none">
+										<ul>
+											<li class="active"><a href="#preview-12204ba5253be089b135677e813fb913" data-toggle="tab">Preview</a></li>
+											<li><a href="#source-12204ba5253be089b135677e813fb913" data-toggle="tab">Source</a></li>
+											<li><a href="#styles-12204ba5253be089b135677e813fb913" data-toggle="tab">Styles</a></li>																					</ul>
+										<a href="../docs/examples/buttons.html" target="_blank" class="pull-right btn btn-success">Live Example</a>
+									</div>
+									<div class="widget-body">
+										<div class="tab-content">
+											<div class="tab-pane active" id="preview-12204ba5253be089b135677e813fb913">
+												<div class="separator-h"></div>
+<div class="widget text-center">
+	
+	<div class="row">
+		<div class="col-md-6">
+			
+			<div class="innerAll">
+				<h5 class="strong">Stroke buttons</h5>
+				<button class="btn btn-primary btn-stroke">Primary</button>
+				<button class="btn btn-inverse btn-stroke">Inverse</button>
+				<button class="btn btn-danger btn-stroke">Danger</button>
+				<button class="btn btn-success btn-stroke">Success</button>
+				<button class="btn btn-warning btn-stroke">
+					Warning</button>
+				<button class="btn btn-info btn-stroke">Info</button>
+			</div>
+
+			<div class="innerAll">
+				<h5 class="strong">Circle Buttons</h5>
+				<button class="btn btn-circle btn-default"><i class="fa fa-home"></i></button>
+				<button class="btn btn-circle btn-primary"><i class="fa fa-lock"></i></button>
+				<button class="btn btn-circle btn-info"><i class="fa fa-google-plus"></i></button>
+				<button class="btn btn-circle btn-inverse"><i class="fa fa-user"></i></button>
+				<button class="btn btn-circle btn-danger"><i class="fa fa-trash-o"></i></button>
+				<button class="btn btn-circle btn-warning"><i class="fa fa-linkedin"></i></button>
+				<button class="btn btn-circle btn-success"><i class="fa fa-twitter"></i></button>
+			</div>
+
+			<div class="innerAll">
+				<h5 class="strong">Circle Stroke</h5>
+				<button class="btn btn-stroke btn-circle btn-primary"><i class="fa fa-lock"></i></button>
+				<button class="btn btn-stroke btn-circle btn-info"><i class="fa fa-google-plus"></i></button>
+				<button class="btn btn-stroke btn-circle btn-inverse"><i class="fa fa-user"></i></button>
+				<button class="btn btn-stroke btn-circle btn-danger"><i class="fa fa-trash-o"></i></button>
+				<button class="btn btn-stroke btn-circle btn-warning"><i class="fa fa-linkedin"></i></button>
+				<button class="btn btn-stroke btn-circle btn-success"><i class="fa fa-twitter"></i></button>
+			</div>
+
+		</div>
+		<div class="col-md-6">
+			
+			<div class="innerAll">
+				<h5 class="strong">Regular buttons</h5>
+				<button class="btn btn-default">Default</button>
+				<button class="btn btn-primary">Primary</button>
+				<button class="btn btn-inverse">Inverse</button>
+				<button class="btn btn-danger">Danger</button>
+				<button class="btn btn-success">Success</button>
+				<button class="btn btn-warning">Warning</button>
+			</div>
+
+			<div class="innerAll">
+				<h5 class="strong">Buttons + Icons</h5>
+				<button class="btn btn-default"><i class="fa fa-home"></i> Default</button>
+				<button class="btn btn-primary"><i class="fa fa-lock"></i> Primary</button>
+				<button class="btn btn-inverse"><i class="fa fa-user"></i> Inverse</button>
+				<button class="btn btn-danger"><i class="fa fa-trash-o"></i> Danger</button>
+				<button class="btn btn-success"><i class="fa fa-twitter"></i> Success</button>
+			</div>
+
+		</div>
+	</div>
+	<div class="separator"></div>
+
+	<div class="innerAll">
+		<h5 class="strong">Buttons + Dropdowns</h5>
+		<div class="btn-group">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				Dropdown Default
+			    <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">Action</a></li>
+				<li><a href="#">Another action</a></li>
+				<li><a href="#">Something else here</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Separated link</a></li>
+			</ul>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+				Dropdown Primary
+			    <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu pull-right">
+				<li><a href="#">Action</a></li>
+				<li><a href="#">Another action</a></li>
+				<li><a href="#">Something else here</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Separated link</a></li>
+			</ul>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
+				Dropdown Inverse
+			    <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu pull-right">
+				<li><a href="#">Action</a></li>
+				<li><a href="#">Another action</a></li>
+				<li><a href="#">Something else here</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Separated link</a></li>
+			</ul>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+				Dropdown Danger
+			    <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu pull-right">
+				<li><a href="#">Action</a></li>
+				<li><a href="#">Another action</a></li>
+				<li><a href="#">Something else here</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Separated link</a></li>
+			</ul>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+				Dropdown Success
+			    <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu pull-right">
+				<li><a href="#">Action</a></li>
+				<li><a href="#">Another action</a></li>
+				<li><a href="#">Something else here</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Separated link</a></li>
+			</ul>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+				Dropdown Warning
+			    <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu pull-right">
+				<li><a href="#">Action</a></li>
+				<li><a href="#">Another action</a></li>
+				<li><a href="#">Something else here</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Separated link</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="separator"></div>
+
+	<div class="innerAll">
+		<h5 class="strong">Double buttons</h5>
+		<button class="btn btn-default btn-icon-stacked"><i class="fa fa-2x fa-facebook"></i> <span>Join using your<br/>Facebook Account</span></button>
+		<button class="btn btn-primary btn-icon-stacked"><i class="fa fa-2x fa-twitter"></i> <span>Join using your<br/>Twitter Account</span></button>
+		<button class="btn btn-inverse btn-icon-stacked"><i class="fa fa-2x fa-google-plus"></i> <span>Join using your<br/>Google Account</span></button>
+		<button class="btn btn-danger btn-icon-stacked"><i class="fa fa-2x fa-facebook"></i> <span>Join using your<br/>Facebook Account</span></button>
+		<button class="btn btn-success btn-icon-stacked"><i class="fa fa-2x fa-facebook"></i> <span>Join using your<br/>Facebook Account</span></button>
+		<button class="btn btn-warning btn-icon-stacked"><i class="fa fa-2x fa-facebook"></i> <span>Join using your<br/>Facebook Account</span></button>
+	</div>
+	<div class="separator"></div>
+
+	<div class="innerAll">
+		<h5 class="strong">Double Stroke</h5>
+		<button class="btn btn-stroke btn-primary btn-icon-stacked"><i class="fa fa-2x fa-twitter"></i> <span>Join using your<br/>Twitter Account</span></button>
+		<button class="btn btn-stroke btn-inverse btn-icon-stacked"><i class="fa fa-2x fa-google-plus"></i> <span>Join using your<br/>Google Account</span></button>
+		<button class="btn btn-stroke btn-danger btn-icon-stacked"><i class="fa fa-2x fa-facebook"></i> <span>Join using your<br/>Facebook Account</span></button>
+		<button class="btn btn-stroke btn-success btn-icon-stacked"><i class="fa fa-2x fa-facebook"></i> <span>Join using your<br/>Facebook Account</span></button>
+		<button class="btn btn-stroke btn-warning btn-icon-stacked"><i class="fa fa-2x fa-facebook"></i> <span>Join using your<br/>Facebook Account</span></button>
+	</div>
+	<div class="separator"></div>
+	
+</div>
+<div class="separator bottom"></div>
+
+
+
+
+											</div>
+											<div class="tab-pane" id="source-12204ba5253be089b135677e813fb913">
+												<pre class="prettyprint">&lt;div class=&quot;separator-h&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;widget text-center&quot;&gt;
+	
+	&lt;div class=&quot;row&quot;&gt;
+		&lt;div class=&quot;col-md-6&quot;&gt;
+			
+			&lt;div class=&quot;innerAll&quot;&gt;
+				&lt;h5 class=&quot;strong&quot;&gt;Stroke buttons&lt;/h5&gt;
+				&lt;button class=&quot;btn btn-primary btn-stroke&quot;&gt;Primary&lt;/button&gt;
+				&lt;button class=&quot;btn btn-inverse btn-stroke&quot;&gt;Inverse&lt;/button&gt;
+				&lt;button class=&quot;btn btn-danger btn-stroke&quot;&gt;Danger&lt;/button&gt;
+				&lt;button class=&quot;btn btn-success btn-stroke&quot;&gt;Success&lt;/button&gt;
+				&lt;button class=&quot;btn btn-warning btn-stroke&quot;&gt;
+					Warning&lt;/button&gt;
+				&lt;button class=&quot;btn btn-info btn-stroke&quot;&gt;Info&lt;/button&gt;
+			&lt;/div&gt;
+
+			&lt;div class=&quot;innerAll&quot;&gt;
+				&lt;h5 class=&quot;strong&quot;&gt;Circle Buttons&lt;/h5&gt;
+				&lt;button class=&quot;btn btn-circle btn-default&quot;&gt;&lt;i class=&quot;fa fa-home&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+				&lt;button class=&quot;btn btn-circle btn-primary&quot;&gt;&lt;i class=&quot;fa fa-lock&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+				&lt;button class=&quot;btn btn-circle btn-info&quot;&gt;&lt;i class=&quot;fa fa-google-plus&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+				&lt;button class=&quot;btn btn-circle btn-inverse&quot;&gt;&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+				&lt;button class=&quot;btn btn-circle btn-danger&quot;&gt;&lt;i class=&quot;fa fa-trash-o&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+				&lt;button class=&quot;btn btn-circle btn-warning&quot;&gt;&lt;i class=&quot;fa fa-linkedin&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+				&lt;button class=&quot;btn btn-circle btn-success&quot;&gt;&lt;i class=&quot;fa fa-twitter&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+			&lt;/div&gt;
+
+			&lt;div class=&quot;innerAll&quot;&gt;
+				&lt;h5 class=&quot;strong&quot;&gt;Circle Stroke&lt;/h5&gt;
+				&lt;button class=&quot;btn btn-stroke btn-circle btn-primary&quot;&gt;&lt;i class=&quot;fa fa-lock&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+				&lt;button class=&quot;btn btn-stroke btn-circle btn-info&quot;&gt;&lt;i class=&quot;fa fa-google-plus&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+				&lt;button class=&quot;btn btn-stroke btn-circle btn-inverse&quot;&gt;&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+				&lt;button class=&quot;btn btn-stroke btn-circle btn-danger&quot;&gt;&lt;i class=&quot;fa fa-trash-o&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+				&lt;button class=&quot;btn btn-stroke btn-circle btn-warning&quot;&gt;&lt;i class=&quot;fa fa-linkedin&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+				&lt;button class=&quot;btn btn-stroke btn-circle btn-success&quot;&gt;&lt;i class=&quot;fa fa-twitter&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+			&lt;/div&gt;
+
+		&lt;/div&gt;
+		&lt;div class=&quot;col-md-6&quot;&gt;
+			
+			&lt;div class=&quot;innerAll&quot;&gt;
+				&lt;h5 class=&quot;strong&quot;&gt;Regular buttons&lt;/h5&gt;
+				&lt;button class=&quot;btn btn-default&quot;&gt;Default&lt;/button&gt;
+				&lt;button class=&quot;btn btn-primary&quot;&gt;Primary&lt;/button&gt;
+				&lt;button class=&quot;btn btn-inverse&quot;&gt;Inverse&lt;/button&gt;
+				&lt;button class=&quot;btn btn-danger&quot;&gt;Danger&lt;/button&gt;
+				&lt;button class=&quot;btn btn-success&quot;&gt;Success&lt;/button&gt;
+				&lt;button class=&quot;btn btn-warning&quot;&gt;Warning&lt;/button&gt;
+			&lt;/div&gt;
+
+			&lt;div class=&quot;innerAll&quot;&gt;
+				&lt;h5 class=&quot;strong&quot;&gt;Buttons + Icons&lt;/h5&gt;
+				&lt;button class=&quot;btn btn-default&quot;&gt;&lt;i class=&quot;fa fa-home&quot;&gt;&lt;/i&gt; Default&lt;/button&gt;
+				&lt;button class=&quot;btn btn-primary&quot;&gt;&lt;i class=&quot;fa fa-lock&quot;&gt;&lt;/i&gt; Primary&lt;/button&gt;
+				&lt;button class=&quot;btn btn-inverse&quot;&gt;&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt; Inverse&lt;/button&gt;
+				&lt;button class=&quot;btn btn-danger&quot;&gt;&lt;i class=&quot;fa fa-trash-o&quot;&gt;&lt;/i&gt; Danger&lt;/button&gt;
+				&lt;button class=&quot;btn btn-success&quot;&gt;&lt;i class=&quot;fa fa-twitter&quot;&gt;&lt;/i&gt; Success&lt;/button&gt;
+			&lt;/div&gt;
+
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;separator&quot;&gt;&lt;/div&gt;
+
+	&lt;div class=&quot;innerAll&quot;&gt;
+		&lt;h5 class=&quot;strong&quot;&gt;Buttons + Dropdowns&lt;/h5&gt;
+		&lt;div class=&quot;btn-group&quot;&gt;
+			&lt;button type=&quot;button&quot; class=&quot;btn btn-default dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
+				Dropdown Default
+			    &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+			&lt;/button&gt;
+			&lt;ul class=&quot;dropdown-menu&quot;&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+				&lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;btn-group&quot;&gt;
+			&lt;button type=&quot;button&quot; class=&quot;btn btn-primary dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
+				Dropdown Primary
+			    &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+			&lt;/button&gt;
+			&lt;ul class=&quot;dropdown-menu pull-right&quot;&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+				&lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;btn-group&quot;&gt;
+			&lt;button type=&quot;button&quot; class=&quot;btn btn-inverse dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
+				Dropdown Inverse
+			    &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+			&lt;/button&gt;
+			&lt;ul class=&quot;dropdown-menu pull-right&quot;&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+				&lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;btn-group&quot;&gt;
+			&lt;button type=&quot;button&quot; class=&quot;btn btn-danger dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
+				Dropdown Danger
+			    &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+			&lt;/button&gt;
+			&lt;ul class=&quot;dropdown-menu pull-right&quot;&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+				&lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;btn-group&quot;&gt;
+			&lt;button type=&quot;button&quot; class=&quot;btn btn-success dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
+				Dropdown Success
+			    &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+			&lt;/button&gt;
+			&lt;ul class=&quot;dropdown-menu pull-right&quot;&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+				&lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;btn-group&quot;&gt;
+			&lt;button type=&quot;button&quot; class=&quot;btn btn-warning dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
+				Dropdown Warning
+			    &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+			&lt;/button&gt;
+			&lt;ul class=&quot;dropdown-menu pull-right&quot;&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+				&lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;separator&quot;&gt;&lt;/div&gt;
+
+	&lt;div class=&quot;innerAll&quot;&gt;
+		&lt;h5 class=&quot;strong&quot;&gt;Double buttons&lt;/h5&gt;
+		&lt;button class=&quot;btn btn-default btn-icon-stacked&quot;&gt;&lt;i class=&quot;fa fa-2x fa-facebook&quot;&gt;&lt;/i&gt; &lt;span&gt;Join using your&lt;br/&gt;Facebook Account&lt;/span&gt;&lt;/button&gt;
+		&lt;button class=&quot;btn btn-primary btn-icon-stacked&quot;&gt;&lt;i class=&quot;fa fa-2x fa-twitter&quot;&gt;&lt;/i&gt; &lt;span&gt;Join using your&lt;br/&gt;Twitter Account&lt;/span&gt;&lt;/button&gt;
+		&lt;button class=&quot;btn btn-inverse btn-icon-stacked&quot;&gt;&lt;i class=&quot;fa fa-2x fa-google-plus&quot;&gt;&lt;/i&gt; &lt;span&gt;Join using your&lt;br/&gt;Google Account&lt;/span&gt;&lt;/button&gt;
+		&lt;button class=&quot;btn btn-danger btn-icon-stacked&quot;&gt;&lt;i class=&quot;fa fa-2x fa-facebook&quot;&gt;&lt;/i&gt; &lt;span&gt;Join using your&lt;br/&gt;Facebook Account&lt;/span&gt;&lt;/button&gt;
+		&lt;button class=&quot;btn btn-success btn-icon-stacked&quot;&gt;&lt;i class=&quot;fa fa-2x fa-facebook&quot;&gt;&lt;/i&gt; &lt;span&gt;Join using your&lt;br/&gt;Facebook Account&lt;/span&gt;&lt;/button&gt;
+		&lt;button class=&quot;btn btn-warning btn-icon-stacked&quot;&gt;&lt;i class=&quot;fa fa-2x fa-facebook&quot;&gt;&lt;/i&gt; &lt;span&gt;Join using your&lt;br/&gt;Facebook Account&lt;/span&gt;&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;separator&quot;&gt;&lt;/div&gt;
+
+	&lt;div class=&quot;innerAll&quot;&gt;
+		&lt;h5 class=&quot;strong&quot;&gt;Double Stroke&lt;/h5&gt;
+		&lt;button class=&quot;btn btn-stroke btn-primary btn-icon-stacked&quot;&gt;&lt;i class=&quot;fa fa-2x fa-twitter&quot;&gt;&lt;/i&gt; &lt;span&gt;Join using your&lt;br/&gt;Twitter Account&lt;/span&gt;&lt;/button&gt;
+		&lt;button class=&quot;btn btn-stroke btn-inverse btn-icon-stacked&quot;&gt;&lt;i class=&quot;fa fa-2x fa-google-plus&quot;&gt;&lt;/i&gt; &lt;span&gt;Join using your&lt;br/&gt;Google Account&lt;/span&gt;&lt;/button&gt;
+		&lt;button class=&quot;btn btn-stroke btn-danger btn-icon-stacked&quot;&gt;&lt;i class=&quot;fa fa-2x fa-facebook&quot;&gt;&lt;/i&gt; &lt;span&gt;Join using your&lt;br/&gt;Facebook Account&lt;/span&gt;&lt;/button&gt;
+		&lt;button class=&quot;btn btn-stroke btn-success btn-icon-stacked&quot;&gt;&lt;i class=&quot;fa fa-2x fa-facebook&quot;&gt;&lt;/i&gt; &lt;span&gt;Join using your&lt;br/&gt;Facebook Account&lt;/span&gt;&lt;/button&gt;
+		&lt;button class=&quot;btn btn-stroke btn-warning btn-icon-stacked&quot;&gt;&lt;i class=&quot;fa fa-2x fa-facebook&quot;&gt;&lt;/i&gt; &lt;span&gt;Join using your&lt;br/&gt;Facebook Account&lt;/span&gt;&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;separator&quot;&gt;&lt;/div&gt;
+	
+&lt;/div&gt;
+&lt;div class=&quot;separator bottom&quot;&gt;&lt;/div&gt;
+
+
+
+
+</pre>
+											</div>
+
+																						<div class="tab-pane" id="styles-12204ba5253be089b135677e813fb913">
+
+												<h4>Code</h4>
+												<pre class="prettyprint">@import &quot;assets/components/common/ui/buttons/assets/buttons.less&quot;;
+@import &quot;assets/components/common/tables/classic/assets/less/tables.less&quot;;
+@import &quot;assets/components/core/less/widgets.less&quot;;
+@import &quot;http://localhost/shared/components/common/tables/responsive/assets/custom/less/tables-responsive.less&quot;;</pre>
+												<hr class="separator"/>
+
+												<h4>Usage</h4>
+												<ol>
+													<li>Create a new LESS file <em>(eg. styles.less)</em></li>
+													<li>Copy &amp; paste the above imports in the LESS file.</li>
+													<li>Place the file in your project's document root.</li>
+													<li>
+														Load the LESS file into the <code>&lt;head&gt;</code> section of your HTML document, before any JavaScript files: <p><pre class="prettyprint">&lt;link type=&quot;stylesheet/less&quot; href=&quot;styles.less&quot; /&gt;</pre>
+</p>
+														<p><span class="label label-danger">NOTE</span>&nbsp; All the styles from the CORE package also need to be imported in this file, before the component imports.</p>													</li>
+													<li>If you'd like to include other components on the same page, don't create multiple LESS files, but add all the imports in one file. You can create a LESS file for each page with just the resources used for that specific page, or you could create and use a single LESS file for the entire project.</li>
+													<li>In production, compile the LESS file and use the resulting minified CSS file in the HTML document.</li>
+												</ol>
+
+											</div>
+											
+											
+										</div>
+									</div>
+								</div>
+								<div class="separator bottom"></div>
+							</div>
+										</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+	<!-- Global -->
+	<script>
+	var basePath = '',
+		commonPath = '../assets/',
+		rootPath = '../',
+		DEV = false,
+		componentsPath = '../assets/components/';
+	
+	var primaryColor = '#3695d5',
+		dangerColor = '#b55151',
+		successColor = '#609450',
+		warningColor = '#ab7a4b',
+		inverseColor = '#45484d';
+	
+	var themerPrimaryColor = primaryColor;
+	</script>
+
+	<script src="../assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.0.3-rc2&sv=v0.0.1.1"></script>
+<script src="../assets/components/plugins/slimscroll/jquery.slimscroll.js?v=v1.0.3-rc2&sv=v0.0.1.1"></script>
+<script src="../assets/components/modules/docs/docs/assets/angular/app/ng.app.js?v=v1.0.3-rc2&sv=v0.0.1.1"></script>
+<script src="../assets/components/modules/docs/assets/angular/filters/ng.filter.isarray.js?v=v1.0.3-rc2&sv=v0.0.1.1"></script>
+<script src="../assets/components/modules/docs/assets/angular/controllers/ng.ctrl.components.js?v=v1.0.3-rc2&sv=v0.0.1.1"></script>
+<script src="../assets/components/modules/docs/docs/assets/angular/directives/ng.docs.directive.components.js?v=v1.0.3-rc2&sv=v0.0.1.1"></script>
+<script src="../assets/components/plugins/prettyprint/assets/js/prettify.js?v=v1.0.3-rc2&sv=v0.0.1.1"></script>
+<script src="../assets/components/core/js/core.init.js?v=v1.0.3-rc2"></script>
+</body>
+</html>

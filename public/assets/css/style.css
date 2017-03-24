@@ -1,0 +1,57 @@
+.gradeA a {
+    color: black !important;
+ 
+}
+.panel-body {
+    margin-top: 100px!important;
+}
+input#search {
+    width: 17%;
+    float: left;
+    margin-bottom: 21px; 
+    margin-right: 17px;
+}
+input#searched {
+    width: 8%;
+    float: left;
+}
+tr.gradeA td:nth-child(-n+1) input{
+    color: black  ;
+}
+input#upload {
+    width: 13%;
+}
+input#upload {
+    width: 13%;
+}
+input#fileToUpload {
+    margin-top: 15px;
+}
+input#textPrice {
+    width: 9%;
+}
+input#textQuantity {
+    width: 9%;
+}
+div#wid {
+    margin-top: 3px;
+}
+
+input#sk {
+    width: 45% !important;
+}
+.col-sm-5.ad {
+    margin-bottom: 5px;
+}
+td.m {
+    width: 81px;
+}
+
+#ho{
+    display:inline;
+}
+input#provider {
+    width: 8%;
+    margin-top: 10px;
+}
+  {!! Html::style('assets/css/admin/module.admin.stylesheet-complete.sidebar_type.discover.min.css')!!}
