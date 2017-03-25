@@ -8,6 +8,7 @@ use App\behaviour_type;
 use App\observation_option;
 use App\behaviour_option;
 use App\behaviour_student;
+use App\behaviour_analysis;
 use App\Http\Requests;
 use DB;
 
@@ -25,27 +26,28 @@ class behaviour extends Controller
          $teacher = $request->teacher;
          $subject = $request->subject;
         $grad = $request->grade ;
-        $behaviour = DB::table('behaviour_syudent')->where('term_id',$term_i )->where('year_id',  $year)->where('subject_id',  $subject)->where('grade_id',  $grad)->get();
+       $date = $request->dat ;
+        $behaviour = DB::table('behaviour_student')->where('date',$date )->where('term_id',$term_i )->where('year_id',  $year)->where('subject_id',  $subject)->where('grade_id',  $grad)->get();
 // print_r($mark);
-        if(isset($behaviour)){
-            foreach($behaviour as $ma){
-          $student[$i] = DB::table('main_student')->where('Full_name' , $ma->name)->where('withdraw','!=' ,'withdraw')->first();
-              $student[$i]->note = $ma->note ;
-              $student[$i]->lecture = $ma->lecture ;
-              $student[$i]->m3 = $ma->m3 ;
-              $student[$i]->m4 = $ma->m4 ;
-              $student[$i]->m5 = $ma->m5 ;
-              $student[$i]->m6 = $ma->m6 ;
-              $student[$i]->avg = $ma->avg ;
-               $student[$i]->total = $ma->total ;
+        if(!empty($behaviour)){
+             $student= DB::table('main_student')->where('Grade' , $grad)->where('withdraw','!=' ,'withdraw')->get();
+            foreach($student as $ma ){
+    $behaviour = DB::table('behaviour_student')->where('name',  $ma->Full_name)->first();
+              $student[$i]->note = @$behaviour->note ;
+              $student[$i]->lecture = @$behaviour->lecture ;
+              $student[$i]->option_id = @$behaviour->option_id ;
+                $behavi = DB::table('behaviour_option')->where('id', @$behaviour->option_id)->first();
+              $student[$i]->option = @$behavi->name ;
+              $student[$i]->type = @$behaviour->type_id ;
+              
                 $i++ ; 
                   }}
         else{
             $student =DB::table('main_student')->where('Grade' , $grad)->where('withdraw','!=' ,'withdraw')->get();
         }
          
-       //print_r($student) ;
-		return view('behaviour.add' , compact('grade' , 'department' , 'term' , 'Year' ,  'student' ,'term_i' , 'year' , 'subject' , 'grad' , 'behav' , 'teacher'));
+      // print_r($student) ;
+		return view('behaviour.add' , compact('grade' , 'department' , 'term' , 'Year' ,  'student' ,'term_i' , 'year' , 'subject' , 'grad' , 'behav' , 'teacher' , 'date'));
 	
 	} 
      public function chooseoption(Request $request ){
@@ -65,25 +67,16 @@ class behaviour extends Controller
 }}
 
      foreach($array as $arr=>$ar){
-    //$marks = DB::table('mark')->where('term_id',$ar['term'] )->where('year_id',$ar['year'])->where('subject_id',$ar['sub'])->where('grade_id',  $ar['grade'])->where('name',@$ar['name'])->get();
-    if(isset($marks)){
-     foreach($marks as $mar ){
-      $mark = Marks::find($mar->id); 
-    $mark ->m1 = @$ar['m1'];
-    $mark ->m2 = @$ar['m2'];
-    $mark ->m3 = @$ar['m3'];
-    $mark ->m4 = @$ar['m4'];
-    $mark ->m5 = @$ar['m5'];
-    $mark ->m6 = @$ar['m6'];
-    $mark ->avg = ((@$ar['m6']+@$ar['m1']+@$ar['m2']+@$ar['m3']+@$ar['m4']+@$ar['m5']) / $ar['total'])*100;
-    $mark ->total = @$ar['m6']+@$ar['m1']+@$ar['m2']+@$ar['m3']+@$ar['m4']+@$ar['m5'];
+    $behaviour = DB::table('behaviour_student')->where('date',$ar['date'] )->where('term_id',$ar['term'] )->where('year_id',  $ar['year'])->where('subject_id',  $ar['sub'])->where('grade_id',  $ar['grade'])->where('name',  $ar['name'])->get();
+    if(!empty($behaviour)){
+     foreach($behaviour as $mar ){
+    $mark = behaviour_student::find($mar->id); 
+    $mark ->note = @$ar['note'];
     $mark ->name = @$ar['name'];
-    $mark ->grade_id = @$ar['grade'];
-    $mark ->subject_id = @$ar['sub'];
-    $mark ->term_id = @$ar['term'];
-    $mark ->year_id = @$ar['year'];
+    $mark ->lecture = @$ar['order'];
+    $mark ->type_id = @$ar['type'];
+    $mark ->option_id = @$ar['option'];
     $mark->save();
-         
      }   
     }
     else{
@@ -91,19 +84,108 @@ class behaviour extends Controller
         if(!empty($ar['type'])){
     $mark ->note = @$ar['note'];
     $mark ->name = @$ar['name'];
-    $mark ->date = $request->dat;
+    $mark ->date = @$ar['date'];
     $mark ->lecture = @$ar['order'];
     $mark ->type_id = @$ar['type'];
+    if(!isset($ar['option'])){
+        $ar['option'] = "";
+    }
     $mark ->option_id = @$ar['option'];
     $mark ->grade_id = @$ar['grade'];
     $mark ->subject_id = @$ar['sub'];
     $mark ->term_id = @$ar['term'];
     $mark ->year_id = @$ar['year'];
     $mark ->teacher_id = @$ar['teacher'];
+    $mark ->status = 'not yet';
     $mark->save();
+    }
 }}
   
-     }
 return Redirect('/BehaviourAssign');
  }
+   public function BehaviourReport(){   
+   $behaviour = DB::table('behaviour_student')->orderBy('date', 'desc')->get();
+       foreach($behaviour as $be => $ha){
+        $grade = DB::table('grade')->where('id' , $ha->grade_id)->first();
+        $behav =DB::table('behaviour_type')->where('id' , $ha->type_id)->first();
+        $behavi = DB::table('behaviour_option')->where('id' , $ha->option_id)->first();
+        $behaviour[$be]->grade = $grade->value ;
+        $behaviour[$be]->option = @$behavi->name ;
+        $behaviour[$be]->type = $behav->name ;
+       }
+    return view('behaviour.report' , compact('behaviour'));
+   }
+    public function reportapprov($id){
+       $behaviour = DB::table('behaviour_student')->where('id', $id)->first(); 
+        $code = DB::table('main_student')->where('Full_name' , $behaviour->name)->first();
+        $mobile = DB::table('parent')->where('code' , $code->parent_code)->first();
+        $phone = $mobile->Mobile1 ;
+        $behavi = DB::table('behaviour_option')->where('id' , $behaviour->option_id)->first();
+        $message = $behavi->message ;
+        $message = 'the student: '.$behaviour->name.' '.$message.' in data '.$behaviour->date ;
+        $message =urlencode($message);
+        $url = 'http://www.vodatext.com/sendSms.aspx?userid=2701&pass=t7one5&to='.$phone.'&text='.$message;
+              
+           
+              if (strpos(file_get_contents($url), 'successfully') !== false) {
+ 
+	echo "<script>alert('your message succesfully send');</script>";
+		
+}
+		else{
+			echo "<script>alert('your Number iss invalid');</script>";
+			
+		}
+     $mark = behaviour_student::find($id); 
+     $mark->status = 'approve' ;
+     $mark->save();
+       return Redirect('/BehaviourReport'); 
+    }
+     public function reportnonapprov($id){
+     $mark = behaviour_student::find($id); 
+     $mark->status = 'not approve' ;
+     $mark->save();
+       return Redirect('/BehaviourReport'); 
+    }
+    public function searchReport(Request $request){
+		$search = $request->searching;
+		$behaviour = behaviour_student::where('date', 'LIKE', '%'.$search.'%')->get();
+        foreach($behaviour as $be => $ha){
+        $grade = DB::table('grade')->where('id' , $ha->grade_id)->first();
+        $behav =DB::table('behaviour_type')->where('id' , $ha->type_id)->first();
+        $behavi = DB::table('behaviour_option')->where('id' , $ha->option_id)->first();
+        $behaviour[$be]->grade = $grade->value ;
+        $behaviour[$be]->option = @$behavi->name ;
+        $behaviour[$be]->type = $behav->name ;
+       }
+		return view('behaviour.report' , compact('behaviour'));
+	}
+	public function searchStatus(Request $request){
+		$search = $request->status;
+		$behaviour = behaviour_student::where('status', $search)->get();
+              foreach($behaviour as $be => $ha){
+        $grade = DB::table('grade')->where('id' , $ha->grade_id)->first();
+        $behav =DB::table('behaviour_type')->where('id' , $ha->type_id)->first();
+        $behavi = DB::table('behaviour_option')->where('id' , $ha->option_id)->first();
+        $behaviour[$be]->grade = $grade->value ;
+        $behaviour[$be]->option = @$behavi->name ;
+        $behaviour[$be]->type = $behav->name ;
+       }
+		return view('behaviour.report' , compact('behaviour'));
+	}
+    	public function BehaviourAnalysis(Request $request){
+        $arr = array() ;
+        $grade=DB::table('grade')->get();
+        $grad = $request->grade ;
+        $student =DB::table('main_student')->where('Grade' , $grad)->where('withdraw','!=' ,'withdraw')->get();
+		$type =DB::table('behaviour_type')->orderBy('name' , 'asc')->get();
+        foreach($type as $ty){
+         foreach($student as $stu) {
+             $behaviour = DB::table('behaviour_student')->where('name', $stu->Full_name)->where('type_id', $ty->id)->get();
+             $arr[$stu->Full_name][$ty->name] = count($behaviour);
+         }  
+        }
+            //print_r($arr);;
+		return view('behaviour.analysis' , compact('grade' , 'arr' , 'type'));
+	}
 }

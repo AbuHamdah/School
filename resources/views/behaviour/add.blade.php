@@ -91,6 +91,7 @@
 							
 							  </div>
                               <div class="col-sm-3">
+                                  <label for="exampleInputlass">Date</label>
                     <input  name="dat" type="text"class="form-control" id="datepicker" value="{{date('Y-m-d')}}">
                         </div>
 							 
@@ -135,29 +136,33 @@
                         <tbody>
                    
                      @foreach($student as $stu)
-                                <tr  class="gradeA">
+                                <tr id="{{$stu->id}}" class="gradeA">
                                        
                                     <td ><input type="text" class="form-control " name="name/{{$stu->id}}" value="{{$stu->Full_name}}" readonly> </td>
                                    
-                                 <td > <select id="type" name='type/{{$stu->id}}' class="form-control">
+                                 <td > <select  name='type/{{$stu->id}}' class="form-control type">
 						<option selected disabled>Choose Type</option>
 						@foreach($behav as $be)
-						<option  value="{{$be->id}}">{{$be->name}}</option>
+						<option <?php if(@$stu->type == $be->id) echo"selected"; ?>  value="{{$be->id}}">{{$be->name}}</option>
 						@endforeach
 								 </select></td>
                                  <td> <select id="option" name='option/{{$stu->id}}' class="form-control">
 						<option selected disabled>Choose Option</option>
+                                     @if(!empty($stu->option))
+                               <option value="{{@$stu->option_id}}" selected>{{@$stu->option}}</option>   
+                                     @endif
 						</select></td>
                               
-                         <td><input  value="{{@$stu->m3}}" type="number" class="form-control " name="order/{{$stu->id}}" ></td>
+                         <td><input  value="{{@$stu->lecture}}" type="number" class="form-control " name="order/{{$stu->id}}" ></td>
                                
-                        <td><input  value="{{@$stu->m3}}" type="text" class="form-control " name="note/{{$stu->id}}" ></td>
+                        <td><input  value="{{@$stu->note}}" type="text" class="form-control " name="note/{{$stu->id}}" ></td>
                                     
                                     <input name="year/{{$stu->id}}" type="hidden" value="{{$year}}">
                                     <input name="sub/{{$stu->id}}" type="hidden" value="{{$subject}}">
                                     <input name="term/{{$stu->id}}" type="hidden" value="{{$term_i}}">
                                     <input name="grade/{{$stu->id}}" type="hidden" value="{{$grad}}">
                                   <input name="teacher/{{$stu->id}}" type="hidden" value="{{$teacher}}">
+                                    <input name="date/{{$stu->id}}" type="hidden" value="{{$date}}">
                                 </tr>
  @endforeach
      </tbody>
@@ -244,10 +249,12 @@ $("#grade").change(function() {
                             }
                         });
 });
-$("#type").change(function() {
+$(".type").change(function() {
  var val = $(this).val();
-	$('#subject').html('');
+    var par = $(this).parent().parent().attr('id') ;
+	$('#'+par+' #option').html('');
 	var info = 'val=' + val;
+    
    $.ajax({
                             type: "GET",
                             url: "/school/public/chooseoption",
@@ -256,7 +263,7 @@ $("#type").change(function() {
                             success: function(e){
                                 obj = JSON.parse(e);
 								for(var i=0 ; i<obj.length ;i++){
-									$('#option').append('<option value="'+obj[i].id+'">'+obj[i].name+'</option>');
+									$('#'+par+' #option').append('<option value="'+obj[i].id+'">'+obj[i].name+'</option>');
 								}
                        
                             }

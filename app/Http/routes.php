@@ -260,6 +260,13 @@ Route::get('/BehaviourAssign', 'behaviour@BehaviourAssign');
 Route::post('/behaviour_choose', 'behaviour@BehaviourAssign'); 
 Route::get('/chooseoption', 'behaviour@chooseoption');
 Route::post('/BehaviourStudent', 'behaviour@BehaviourStudent');
+Route::get('/BehaviourReport', 'behaviour@BehaviourReport');     
+Route::get('/reportapprov/{id}', 'behaviour@reportapprov');
+Route::get('/reportnonapprov/{id}', 'behaviour@reportnonapprov');
+Route::post('/searchreport', 'behaviour@searchReport');
+Route::post('/searchstatus', 'behaviour@searchStatus');
+Route::get('/BehaviourAnalysis', 'behaviour@BehaviourAnalysis');
+Route::post('/analysis_choose', 'behaviour@BehaviourAnalysis');
 Route::post('/import', 'Control@import');
 });
 
