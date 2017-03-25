@@ -131,7 +131,7 @@ login
                         </div>
                           <div class="form-group">
                             <label for="exampleInputsubject">Message</label>
-                            <input name="clas" type="text" class="form-control" id="exampleInputsubject" placeholder=" option Message">
+                            <input name="message" type="text" class="form-control" id="exampleInputsubject" placeholder=" option Message">
                         </div>
 					</div>
                         <div class="modal-footer">

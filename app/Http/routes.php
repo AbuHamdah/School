@@ -251,6 +251,7 @@ Route::get('/deleteObservation_type', 'Control@DeleteObservation_type');
 Route::get('/cancelObservation_type', 'Control@CancelObservation_type');
 // observation option 
 Route::get('/observation_option', 'Control@ListObservation_option');
+Route::post('/listObservation_option', 'Control@ListObservation_option');
 Route::post('/addObservation_option', 'Control@AddObservation_option');
 Route::get('/saveObservation_option', 'Control@SaveObservation_option');
 Route::get('/deleteObservation_option', 'Control@DeleteObservation_option');
@@ -267,6 +268,15 @@ Route::post('/searchreport', 'behaviour@searchReport');
 Route::post('/searchstatus', 'behaviour@searchStatus');
 Route::get('/BehaviourAnalysis', 'behaviour@BehaviourAnalysis');
 Route::post('/analysis_choose', 'behaviour@BehaviourAnalysis');
+    // observaton
+Route::get('/AddObservation', 'observation@ObservationAdd');
+Route::post('/observation_choose', 'observation@ObservationAdd'); 
+Route::post('/observationResult', 'observation@observationResult');
+Route::get('/ObservationReport', 'observation@ObservationReport');
+Route::post('/ObservationReportChoose', 'observation@ObservationReport');
+Route::get('editobserv/{teacher}/{subject}/{date}','observation@editobserv');
+Route::post('/observationUpdate', 'observation@observationUpdate');
+Route::get('/deleteObservation_report', 'Control@DeleteObservation_report');
 Route::post('/import', 'Control@import');
 });
 

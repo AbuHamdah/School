@@ -44,7 +44,7 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
       {!! Html::script('assets/js/phone.js')!!}
     
-    {!! Html::script('assets/js/cru.js')!!}
+    {!! Html::script('assets/js/crud1.js')!!}
     {!! Html::script('assets/js/jquery.printElement.min.js')!!}
     {!! Html::script('assets/css/admin/module.admin.stylesheet-complete.sidebar_type.collapse.min.css')!!}
     {!! Html::script('assets/components/library/jquery/jquery.min.js?v=v1.0.3-rc2&sv=v0.0.1.1')!!}
@@ -289,6 +289,25 @@
                                         <li class=""><a href="{{url('BehaviourAnalysis')}}">Behaviour Analysis</a>
                                         </li>
                           
+                            </ul>
+                        </div>
+                    </li>
+       <li >
+                        <a href="#sidebar-discover-observ" class="glyphicons edit " data-toggle="sidebar-discover">
+                            <i></i>
+                            <span> Observation </span>
+                        </a>
+                        <div id="sidebar-discover-observ" class="sidebar-discover-menu">
+                            <div class="innerAll text-center border-bottom text-muted-dark">
+                                <strong>Behaviour</strong>
+                                <button class="btn btn-xs btn-default close-discover"><i class="fa fa-fw fa-times"></i>
+                                </button>
+                            </div>
+                            <ul class="animated fadeIn">
+                              <li class=""><a href="{{url('AddObservation')}}">Add observation</a>
+                                        </li>
+                                        <li class=""><a href="{{url('ObservationReport')}}">Observation Report</a>
+                                        </li>
                             </ul>
                         </div>
                     </li>

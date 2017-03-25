@@ -21,7 +21,7 @@
                          $("#delete_"+id).hide();
                         $("#cancel_"+id).show();
                           }
-                          if(table=="be_option_table"){
+                          else if(table=="be_option_table"){
 							  
                               var c=0;
                         var elemant = $("#edit_"+id).parent().parent() ; 
@@ -29,9 +29,11 @@
                     
                     var item = $(this).text();
                           
-                              if(c ==2 && c==1 ){
-                                $(this).html("<input type='text' class='form-control con' value ="+item+">"); 
-                                  $('.con').val(item);
+                              if(c <=2 ){
+                                  if(c !=0){
+                                $(this).html("<input type='text' class='form-control con"+c+"' value ="+item+">"); 
+                                       $('.con'+c).val(item);
+                                  }
 							  }
                             c+=1;
                           });
@@ -212,7 +214,40 @@
                           
                          });
                        
-                       $.get("/school/public/saveBehaviour_option", {id : id , name : y[0]},
+                       $.get("/school/public/saveBehaviour_option", {id : id , name : y[0] , message : y[1]},
+
+                   function(response){
+                            
+                            alert("the data was correctly saved");
+                            $("#save_"+id).hide();
+                            $("#edit_"+id).show();
+                            $("#delete_"+id).show();
+                            $("#cancel_"+id).hide();
+                            var i = 0 ;
+                            var val = [] ;
+                        $("#save_"+id).parent().parent().children().children().each(function(va){
+                         
+                             if(i <=1){
+                               $(this).parent().html($(this).val());  
+                        
+                             }
+                        
+                         i+=1 ;
+                         
+                    });
+                         
+                       });
+}
+                else if(table=="ob_option_table"){
+                   var y=[] ;
+                         $("#save_"+id).parent().parent().children().children().each(function(val){
+
+                           y[val] = $(this).val()  ;  
+                            
+                          
+                         });
+                       
+                       $.get("/school/public/saveObservation_option", {id : id , name : y[0]},
 
                    function(response){
                             
@@ -236,7 +271,7 @@
                          
                        });
 }
-                if(table=="behaviour_table"){
+                else if(table=="behaviour_table"){
                    var y=[] ;
                          $("#save_"+id).parent().parent().children().children().each(function(val){
 
@@ -269,7 +304,7 @@
                          
                        });
 }
-                if(table=="observation_table"){
+                else if(table=="observation_table"){
                    var y=[] ;
                          $("#save_"+id).parent().parent().children().children().each(function(val){
 
@@ -1056,10 +1091,42 @@ function cancel_row(id , table){
               
   
 	}
-     if(table=="be_option_table"){
+     else if(table=="be_option_table"){
     var obj = "" ;
      var i = 0 ;
     $.get("/school/public/cancelBehaviour_option", {id : id }, 
+
+    function(data){
+		
+        obj = JSON.parse(data);
+        console.log(obj);
+          $("#cancel_"+id).parent().parent().children().children().each(function(){
+               
+                         if(i<=5){
+                            
+                         if(i==0){
+                                $(this).parent().html(obj.name); 
+                             }
+                             if(i==1){
+                                $(this).parent().html(obj.message); 
+                             }
+                       i+=1 ;
+                         }
+           
+                    });
+
+                            $("#save_"+id).hide();
+                            $("#edit_"+id).show();
+                            $("#delete_"+id).show();
+                            $("#cancel_"+id).hide();                     
+              });
+              
+  
+	}
+         else if(table=="ob_option_table"){
+    var obj = "" ;
+     var i = 0 ;
+    $.get("/school/public/cancelObservation_option", {id : id }, 
 
     function(data){
 		
@@ -1085,7 +1152,7 @@ function cancel_row(id , table){
               
   
 	}
-     if(table=="behaviour_table"){
+     else if(table=="behaviour_table"){
     var obj = "" ;
      var i = 0 ;
     $.get("/school/public/cancelBehaviour_type", {id : id }, 
@@ -1114,7 +1181,7 @@ function cancel_row(id , table){
               
   
 	}
-     if(table=="observation_table"){
+     else if(table=="observation_table"){
     var obj = "" ;
      var i = 0 ;
     $.get("/school/public/cancelObservation_type", {id : id }, 
@@ -1779,8 +1846,9 @@ function delete_row(id , table ){
 
 }     
 function deleteData(id , table){
+    if(table != 165){
                     var element = $('#delete_'+id);
-                   
+    }
                    
                     var info = 'id=' + id;
                    if(table == 1){
@@ -2076,6 +2144,38 @@ function deleteData(id , table){
                             success: function(){
                                 
                          element.parent().parent().hide();
+                                
+                            }
+                        });
+		
+	}
+      else if(table == 163){
+		   $.ajax({
+                            type: "GET",
+                            url: "/school/public/deleteObservation_option",
+                            data: info,
+                            
+                            success: function(){
+                                
+                         element.parent().parent().hide();
+                                
+                            }
+                        });
+		
+	}
+     else if(table == 165){
+         
+         var res = id.split("/");
+         
+         var info = 'teacher=' + res[0]+'&subject='+ res[1]+'&date='+ res[3];
+		   $.ajax({
+                            type: "GET",
+                            url: "/school/public/deleteObservation_report",
+                            data: info,
+                            
+                            success: function(){
+                                
+                         $('#delete_x').parent().parent().hide();
                                 
                             }
                         });

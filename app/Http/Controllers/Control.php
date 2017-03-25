@@ -891,10 +891,12 @@ public function chooseadress(Request $request ){
 		
 		return view('control.observation_type' , compact('observ'));
 	}
-     public function ListObservation_option(){
-		$observ =DB::table('observation_option')->get();;
+     public function ListObservation_option(Request $request){
+        $type =DB::table('observation_type')->get();
+         $type_id = $request->sub ;
+		$observ =DB::table('observation_option')->where('observation_id', $type_id)->get();;
 		
-		return view('control.observation_option' , compact('observ'));
+		return view('control.observation_option' , compact('observ' , 'type'));
 	}
      public function AddBehaviour(Request $request ){
 		 $class = new behaviour_type;
@@ -912,8 +914,16 @@ public function chooseadress(Request $request ){
 			$student = new behaviour_option;
 		$student->type_id = $request->sub ;
 		$student->name = $request->clas;
+        $student->message = $request->message;
 	$student->save();
 		return Redirect('/behaviour_option');
+	}
+    public function AddObservation_option(Request $request){
+			$student = new observation_option;
+		$student->observation_id = $request->sub ;
+		$student->name = $request->clas;
+	$student->save();
+		return Redirect('/observation_option');
 	}
      public function SaveObservation_type(Request $request ){
 		 $id= $request->id;
@@ -971,6 +981,32 @@ public function chooseadress(Request $request ){
 		 $id= $request->id;
 	 $class = observation_type::find($id);
 		echo json_encode($class);
+
+}
+public function SaveObservation_option(Request $request ){
+		 $id= $request->id;
+	 $class = observation_option::find($id);
+		 $class->name = $request->name;
+         $class->save();
+
+}
+ public function DeleteObservation_option(Request $request){
+		 $id= $request->id;
+	 $class = observation_option::find($id);
+		$class->delete();
+
+}
+	 public function CancelObservation_option(Request $request){
+		 $id= $request->id;
+	 $class = observation_option::find($id);
+		echo json_encode($class);
+
+}
+    public function DeleteObservation_report(Request $request){
+		 $teacher = $request->teacher;
+         $date = $request->date ;
+         $subject = $request->subject ;
+	 DB::table('observation_result')->where('teacher_id',$teacher)->where('subject_id',$subject)->where('date' , $date)->delete();
 
 }
 }
